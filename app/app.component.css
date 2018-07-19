@@ -1,0 +1,21 @@
+.instructionTitle{
+    text-underline: black;
+    font-family: 'Cairo', sans-serif;
+
+}
+.instructionList{
+    font-size: 18px;
+
+}
+.Header{
+    text-align: center;
+}
+.btn{
+    margin-top: 10%;
+    margin-left: 15%;
+    font-size: 25px;
+}
+.turn{
+    font-size: 20px;
+    padding-bottom: 0;
+}
