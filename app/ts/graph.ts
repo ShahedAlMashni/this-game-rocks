@@ -9,12 +9,12 @@ export class Graph{
     number_rocks:number;
 
     constructor(canvasWidth,canvasHeight){
-       while(this.node_array == null){
-           this.generateGraph(canvasWidth,canvasHeight);
-           if(this.node_array.length <= 8|| this.number_rocks <= 5 || this.number_rocks > 12 || this.getCurrentXor() == 0 || this.edges_array.length>13){
-               this.node_array = null;
-           }
-       }
+        while(this.node_array == null){
+            this.generateGraph(canvasWidth,canvasHeight);
+            if(this.node_array.length <= 8|| this.number_rocks <= 5 || this.number_rocks > 12 || this.getCurrentXor() == 0 || this.edges_array.length<10|| this.edges_array.length>15){
+                this.node_array = null;
+            }
+        }
     }
     public generateGraph(canvasWidth,canvasHeight){
         this.node_array = [  ];
@@ -49,7 +49,7 @@ export class Graph{
                     position_X = canvasWidth/(0.5+cnt);
                 else if(this.node_array[i].depth==1)
                     position_X = canvasWidth/(0.7+cnt);
-               else position_X = canvasWidth/(1+cnt);
+                else position_X = canvasWidth/(1+cnt);
                 cur_row = 0;
             }
 
@@ -61,7 +61,7 @@ export class Graph{
 
         for(var i = 0 ; i < this.node_array.length; ++i){
             if(this.node_array[i].depth == 3)continue;
-            var num = this.getRandomInt(1,this.node_array[i].depth <=1 ? 3: 2);
+            var num = this.getRandomInt(this.node_array[i].depth <=1 ? 2: 1,this.node_array[i].depth <=1 ? 3: 2);
             while(num>0) {
                 var u = i, v = -1;
                 while (v == -1) {
@@ -149,7 +149,7 @@ export class Graph{
     public getCurrentTurn(){
         return this.current_turn;
     }
-    
+
     public getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
